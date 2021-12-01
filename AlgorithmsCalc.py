@@ -60,32 +60,83 @@ def temperature():
     print("2. Celsius to Fahrenheit")
     number = (input("> "))
     if (number == "1"):
-        f_temp = float(input("Temperature: "))
+        f_temp = float(input("F. Temperature: "))
         c_temp = (f_temp * (9/5) + 32)
         print(f"Celsius = {c_temp:.2f}\n")
     elif (number=="2"):
-        c_temp = float(input("Temperature: "))
+        c_temp = float(input("C. Temperature: "))
         f_temp = ((c_temp - 32) * 5/9)
         print(f"Fahrenheit = {f_temp:.2f}\n")
 
-def physics():
-    print("What physics do you want to calculate?")
-    print("1. Free Fall Algorithm")
+def distance():
+    print("What distance do you want to calculate?")
+    print("1. Feet to meters")
+    print("2. Meters to feet")
+    print("3. Inches to centimeters")
+    print("4. Centimeters to inches")
     number = (input("> "))
     if (number == "1"):
-        
+        feet=float(input("Enter footage: "))
+        meters=feet*0.3048
+        print(f"Total meters: {meters:.2f}\n")
+    if (number == "2"):
+        meters=float(input("Enter meters: "))
+        feet=meters*3.280839895
+        print(f"Total footage: {feet:.2f}\n")
+    if (number == "3"):
+        inches=float(input("Enter inches: "))
+        centimeters=inches*2.54
+        print(f"Total Centimeters: {centimeters:.3f}\n")
+    if (number == "4"):
+        centimeters=float(input("Enter centimeters: "))
+        inches=centimeters*0.3937007874
+        print(f"Total inches: {inches:.3f}\n")
+
+
+def physics():
+    import math
+    print("What physics do you want to calculate?")
+    print("1. Free Fall Algorithm")
+    print("2. Feet or Meters")
+    #print("2. Some other algorithm")
+    #print ("3. Some other algorithm")
+    number = (input("> "))
+    if (number == "1"):
+        print("What variables are known?")
+        print("1. Time")
+        print("2. Height")
+        number = (input("> "))
+        if (number == "1"):
+            time=float(input("Time in seconds: "))
+            height=(1/2 * 9.8 * (time**2))
+            velocity=(9.8*time)
+            print(f"The height is = {height:.2f} meters, and the velocity is = {velocity:.2f} meters per second.\n")
+        if (number == "2"):
+            height=float(input("Height in meters: "))
+            time=math.sqrt((height / .5 / 9.8))
+            velocity=(9.8*time)
+            print(f"The amount of time until touchdown is = {time:.2f} in seconds, and the velocity is {velocity:.2f} meters per second.\n")
+
 
 while True:
     print("1. Calculate Electricity")
     print("2. Calculate Mass")
     print("3. Calculate Temperature")
+    print("4. Calculate Distance")
+    print("5. Calculate Algorithms")
     number = (input("> "))
     if (number == "1"):
         electric_calc()
     elif (number == "2"):
         mass_calc()
-    else:
+    elif (number == "3"):
         temperature()
+    elif (number == "4"):
+        distance()
+    elif(number == "5"):
+        physics()
+    else:
+        print("\nPlease enter a valid selection\n")
 
 #Current = Amperage (Net Flow)
 #Voltage = Joules per Coulomb (Pressure)
