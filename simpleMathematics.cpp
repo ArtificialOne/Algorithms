@@ -26,6 +26,20 @@ void hypotenuse()
   double hyp=sqrt(pow(sideA,2) + pow(sideB,2)); //Hyp needs to be entered after input.
   std::cout<<"The Hypotenuse is: "<<hyp<<'\n';
   
+    
+}
+
+void factorial()
+{
+    int result=1;
+    int num;
+
+    std::cout<<"Please enter a number to factorial from: ";
+    std::cin>>num;
+    for(int i=1;i<=num;i++){
+        result=result*i;
+    }
+    std::cout<<"Factorial result is: "<<result<<'\n';
 }
 int main(){
   
@@ -46,6 +60,7 @@ int main(){
     std::cout<<"************************************************************"<<'\n';
     
     hypotenuse();
+    factorial();
   
   return 0;
 }
